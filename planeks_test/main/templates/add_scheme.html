@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+<head>
+  <title>Add Scheme</title>
+</head>
+<body>
+  <h1>Add Scheme</h1>
+  <form method="post">
+   {% csrf_token %}
+   {{ generate_form.as_p }}
+   <button type="submit" name="generate_data">Generate data</button>
+</form>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      {{ form.full_name.label_tag }}
+      {{ form.full_name }}
+    </div>
+    <div>
+      {{ form.name_scheme.label_tag }}
+      {{ form.name_scheme }}
+    </div>
+    <div>
+      {{ form.job.label_tag }}
+      {{ form.job }}
+    </div>
+    <div>
+      {{ form.email.label_tag }}
+      {{ form.email }}
+    </div>
+    <div>
+      {{ form.domain_name.label_tag }}
+      {{ form.domain_name }}
+    </div>
+    <div>
+      {{ form.company_name.label_tag }}
+      {{ form.company_name }}
+    </div>
+    <div>
+      {{ form.text.label_tag }}
+      {{ form.text }}
+    </div>
+    <div>
+      {{ form.age.label_tag }}
+      {{ form.age }}
+    </div>
+    <div>
+      {{ form.address.label_tag }}
+      {{ form.address }}
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+<br>
+</body>
+</html>
+{% endblock %}

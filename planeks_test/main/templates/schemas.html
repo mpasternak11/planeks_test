@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="http://127.0.0.1:8000/add_schema/">Add scheme</a>
+</header>
+<head>
+    <title>My Schemas</title>
+    <style>
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<div>
+    <h1>My Schemas</h1>
+    <table >
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Name of Scheme</th>
+                <th>Job</th>
+                <th>Email</th>
+                <th>Domain</th>
+                <th>Company Name</th>
+                <th>Text</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Created At</th>
+                <a href="{% url 'download_csv' %}">Download CSV</a>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in schems %}
+            <tr>
+                <td>{{ s.full_name }}</td>
+                <td>{{ s.name_scheme }}</td>
+                <td>{{ s.job }}</td>
+                <td>{{ s.email }}</td>
+                <td>{{ s.domain_name }}</td>
+                <td>{{ s.company_name }}</td>
+                <td>{{ s.text }}</td>
+                <td>{{ s.age }}</td>
+                <td>{{ s.address }}</td>
+                <td>{{ s.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</html>
+{% endblock %}
